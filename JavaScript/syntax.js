@@ -175,8 +175,7 @@ const number_2=undefined
 const isOutput=(number_1===number_2)?"Đúng":"Sai"
 console.log(isOutput)// Sai
 
-/**//**TOÁN TỬ BA NGÔI
- * dành cho trường hợp đơn giản 
+//**TOÁN TỬ BA NGÔI: dành cho trường hợp đơn giản //
 
 const course={
    name:"Javascript",
@@ -197,12 +196,3 @@ console.log(result)
 
 
 
-/** CALLBACK 
- * 1. Là hàm
- * 2. Được truyền qua đối số 
-*/
-const userNames=(user)=> {
-console.log( "Value:", user
-)
-}
-userNames(123)
