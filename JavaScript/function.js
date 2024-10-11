@@ -28,7 +28,7 @@ handleInput()
 /**THAM SỐ
  * 1.-định nghĩa:gtri truyền vào khi gọi function (e), truyền đc nhiều tham số
  * -kiểu dữ liệu:ko giới hạn
- * 
+ * ĐỐI SỐ: gọi hàm truyền đối số vào tương ứng vs tham số 
  */
 
 // Các loại function
@@ -98,3 +98,25 @@ content
 }
 }
 console.log(createBook("dfvb","egre","ểg"))// undefined
+
+const getInfo=({inFoBanking:{idUser}})=> {
+    console.log(idUser)
+}
+getInfo({
+   name: "dfb",
+gender: "felamff",
+  contact:  {
+        email:"sghd@",
+        phoneNumber:"21423542"
+    },
+    address:"teythrn",
+   inFoBanking: {idUser:"1424",
+        age:"12423",
+        banking:{
+            nameBanking:"sẻg",
+            numberBanking:"1242543"
+        }
+    }
+},
+)
+// lấy value của object  inFoBanking, contact tương tự
