@@ -49,12 +49,13 @@ return d+e
 }
 console.log(handleCount(3,5))
 
-// spread operator:khi muốn truyền nhiều đối số 
+// spread operator:khi muốn truyền nhiều đối số cho hàm
+//! gom tất cả các đối số truyền vào hàm thành một mảng có tên là strings
 const combineStrings=(...strings)=> {
-    return strings.join("")
+    return strings.join("")// method bỏ khoảng trống
 }
-console.log(combineStrings("Hi","World"))
-console.log(combineStrings("fsdvfs"))
+console.log(combineStrings("Hi","World"))// strings = ["Hi", "World"] => HiWorld
+console.log(combineStrings("fsdvfs"))  //strings = ["fsdvfs"]=> fsdvfs
 
 // RETURN {}: trả về object hoặc array vì giống,
 // nên return({}) hoặc return([]) để tránh nhầm lẫn block code
@@ -69,7 +70,8 @@ const user=createUser("TramAnh",25)
 console.log(user) //[ 'TramAnh', 25 ]
 
 const createUserContact=(phone,email)=> {
-    return ({phone:phone,
+    return ({
+        phone:phone,
         email:email})
      }
 console.log(createUserContact("6555","gebg"))
@@ -84,11 +86,11 @@ console.log(greet("fvfdb"))
 
 const createProduct=(...inf)=> {
     const [id,brand,price]=inf
-    return  {   id, brand,price}
+    return  { id, brand,price}
 }
 console.log(createProduct(1, "Laptop", 1500))
 
-//vì js tự động hiểu return là stop ko chạy nữa
+//những code sau return sẽ ko run nên phải viết ngang hàng vs return hoặc bỏ dấu() rồi xuống hàng 
 const createBook=(...info)=> {
 const [title,author,content]=info
 return
@@ -99,8 +101,9 @@ content
 }
 console.log(createBook("dfvb","egre","ểg"))// undefined
 
-const getInfo=({inFoBanking:{idUser}})=> {
-    console.log(idUser)
+const getInfo=({inFoBanking:{idUser},address,contact:{phoneNumber}})=> {
+    console.log(idUser,address,phoneNumber)
+  
 }
 getInfo({
    name: "dfb",

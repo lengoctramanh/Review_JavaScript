@@ -8,9 +8,9 @@ test()
 // KQ:1 2 3
 
 
-//BẤT ĐỒNG BỘ:ASYNC
+//BẤT ĐỒNG BỘ:ASYNC: thực hiện 1 lúc nhiều tác vụ 
 const createIdProduct=()=> {
-    setTimeout(()=>console.log("1"))
+    setTimeout(()=>console.log("1"),0)
     console.log("2")
     console.log("3")
 }
@@ -70,21 +70,34 @@ fetchData
 .catch((err)=> {console.log(err)})
 
 
-//ASYNC/AWAIT:GIỐNG PROMISE NHƯNG GIÚP CODE TỪ 
-//BẤT ĐỒNG BỘ CHẠY THEO ĐỒNG BỘ
-//trước mỗi promise có await
-// promise 1 đầu tiên chạy xong thì promise 2 mới đc chạy
-const executeAsync=async (params) => {
+//ASYNC/AWAIT:return về một promise 
+//BIẾN BẤT ĐỒNG BỘ CHẠY THEO ĐỒNG BỘ
+//? + LÀM CV 1 TRƯỚC=> SAU KHI XONG TIẾP TỤC CV 2=> NẾU CÓ LỖI,BÁO LỖI
+const handleRun= async()=>{
     try {
-        const promise1=await myPromise
-    console.log("---promise 1",promise1)
-    const promise2=await fetchData
-    console.log("----promise 2",promise2)
+       const res=await handleAdd(5,3)
+       console.log("KET QUA CONG",res) 
+       const nextRes= await handleMinus(5,3)
+       console.log("KET QUA TRU",nextRes)
     } catch (error) {
-        console.log(error)
+        console.log("Lỗi",error)
     }
-    
 }
-executeAsync()
-
+const handleAdd=(a,b)=> {
+return new Promise((resolve, reject) => {
+ setTimeout(()=> {
+    resolve(a+b)
+ },1000)
+})
+}
+const handleMinus=(a,b)=> {
+return new Promise((resolve, reject) => {
+    setTimeout(()=> {
+        resolve(a-b)
+    },1000)
+})
+}
+handleRun()
+handleAdd()
+handleMinus()
 
